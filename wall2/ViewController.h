@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-
+@property(weak,nonatomic) IBOutlet UILabel *lblUsage;
 
 @property (weak, nonatomic) IBOutlet UILabel *flabel;
 @property (weak, nonatomic) IBOutlet UILabel *slabel;

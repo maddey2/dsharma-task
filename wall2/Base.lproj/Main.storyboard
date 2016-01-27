@@ -166,10 +166,18 @@
                                     <action selector="calLeft:" destination="EHw-HS-kMZ" eventType="touchUpInside" id="7Lg-s6-pNT"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You dont have any usage for this period." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EN-SD-gDk">
+                                <rect key="frame" x="20" y="479" width="335" height="103"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8EN-SD-gDk" firstAttribute="leading" secondItem="wIp-4z-Z29" secondAttribute="leading" constant="20" id="1T5-g2-jDZ"/>
                             <constraint firstItem="mxP-Wq-Un1" firstAttribute="top" secondItem="hhN-tq-PmD" secondAttribute="bottom" constant="327" id="2k4-JC-Ofd"/>
                             <constraint firstItem="2SG-ER-DiV" firstAttribute="centerY" secondItem="3fE-Ue-YNc" secondAttribute="centerY" constant="-1.5" id="3WP-l7-bBT"/>
                             <constraint firstItem="2SG-ER-DiV" firstAttribute="centerY" secondItem="Ypy-aM-Kp4" secondAttribute="centerY" constant="-1.5" id="3gX-Dz-TXK"/>
@@ -201,6 +209,7 @@
                             <constraint firstItem="NWx-yv-pAd" firstAttribute="baseline" secondItem="fnD-c1-RYA" secondAttribute="baseline" constant="-1" id="j2S-Lp-4Xc"/>
                             <constraint firstItem="6sF-Xb-bex" firstAttribute="width" secondItem="yKU-ZR-pNU" secondAttribute="width" id="jmX-Vd-Y1D"/>
                             <constraint firstItem="AkC-C1-KaY" firstAttribute="width" secondItem="yKU-ZR-pNU" secondAttribute="width" constant="1" id="kV8-Hh-Ky7"/>
+                            <constraint firstItem="mxP-Wq-Un1" firstAttribute="top" secondItem="8EN-SD-gDk" secondAttribute="bottom" constant="85" id="kgD-bj-M4z"/>
                             <constraint firstItem="6sF-Xb-bex" firstAttribute="height" secondItem="yKU-ZR-pNU" secondAttribute="height" id="kqw-bt-x8e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3fE-Ue-YNc" secondAttribute="trailing" constant="-14" id="lCo-nd-SnX"/>
                             <constraint firstItem="2SG-ER-DiV" firstAttribute="height" secondItem="yKU-ZR-pNU" secondAttribute="height" id="luM-K5-9TD"/>
@@ -210,8 +219,10 @@
                             <constraint firstItem="AkC-C1-KaY" firstAttribute="baseline" secondItem="yKU-ZR-pNU" secondAttribute="baseline" id="psI-i9-jbd"/>
                             <constraint firstItem="2SG-ER-DiV" firstAttribute="top" secondItem="Ypy-aM-Kp4" secondAttribute="top" constant="-2" id="rhg-63-ZZ8"/>
                             <constraint firstItem="i1z-KR-Io4" firstAttribute="height" secondItem="yKU-ZR-pNU" secondAttribute="height" id="sCt-ye-keA"/>
+                            <constraint firstAttribute="trailing" secondItem="8EN-SD-gDk" secondAttribute="trailing" constant="20" id="so7-IS-GTa"/>
                             <constraint firstItem="Ypy-aM-Kp4" firstAttribute="top" secondItem="L6b-Yl-uy9" secondAttribute="bottom" constant="-20" id="u4X-Pj-K7x"/>
                             <constraint firstItem="2SG-ER-DiV" firstAttribute="baseline" secondItem="AkC-C1-KaY" secondAttribute="firstBaseline" constant="1" id="uUz-X0-vkH"/>
+                            <constraint firstItem="8EN-SD-gDk" firstAttribute="top" secondItem="L6b-Yl-uy9" secondAttribute="bottom" constant="82" id="yEw-Gp-lCt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DvS-0d-uEF"/>
@@ -221,6 +232,7 @@
                         <outlet property="fivlabel" destination="i1z-KR-Io4" id="ycR-Xz-gwj"/>
                         <outlet property="flabel" destination="yKU-ZR-pNU" id="Nee-fn-3ns"/>
                         <outlet property="folabel" destination="AkC-C1-KaY" id="bFt-On-gwd"/>
+                        <outlet property="lblUsage" destination="8EN-SD-gDk" id="KAs-zY-spH"/>
                         <outlet property="leftBtn" destination="Ypy-aM-Kp4" id="JAK-rk-MUz"/>
                         <outlet property="rightBtn" destination="3fE-Ue-YNc" id="FVX-7T-zkS"/>
                         <outlet property="sevenlabel" destination="6sF-Xb-bex" id="ovs-zo-1s9"/>

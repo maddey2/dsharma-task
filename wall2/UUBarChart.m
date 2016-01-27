@@ -82,8 +82,40 @@
     CGFloat levelHeight = chartCavanHeight /4.0;
     
     for (int i=0; i<5; i++) {
-        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight-i*levelHeight+5, UUYLabelwidth, UULabelHeight)];
-		label.text = [NSString stringWithFormat:@"%.1f",level * i+_yValueMin];
+        UUChartLabel * label = [[UUChartLabel alloc] initWithFrame:CGRectMake(0.0,chartCavanHeight-i*levelHeight+5, UUYLabelwidth+1, UULabelHeight)];
+        
+        switch (i) {
+            case 0:
+            {
+                label.text = @"0";
+                break;
+            }
+            case 1:
+            {
+                label.text = @"500";
+                break;
+            }
+            case 2:
+            {
+                label.text = @"1000";
+                break;
+            }
+            case 3:
+            {
+                label.text = @"5000";
+                break;
+            }
+            case 4:
+            {
+                label.text = @"10,000";
+                break;
+            }
+                
+            default:
+                break;
+        }
+        
+//		label.text = [NSString stringWithFormat:@"%.1f",level * i+_yValueMin];
         
         // this will hide the label of y axis
 		[self addSubview:label];

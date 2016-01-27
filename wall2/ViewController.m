@@ -20,6 +20,8 @@
     int arrNum;
     
     int asd;
+    
+    NSArray *arrJanuary1,*arrJanuary2,*arrDecember1,*arrDecember2,*arrNovember1,*arrNovember2;
 }
 
 
@@ -52,7 +54,7 @@
     //
     
 
-    
+        [self monthArray];
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMMM,yyyy"];
@@ -69,6 +71,8 @@
         chart.layer.borderColor = [UIColor grayColor].CGColor;
         chart.layer.borderWidth = 1.0f;
         [chart showInView:self.view];
+    
+
        //[self dateChange];
 
 
@@ -135,12 +139,11 @@
     
     [self dateChange];
     
-    NSDateComponents *dateComp = [NSDateComponents new];
-    dateComp.day = 2;
-    dateComp.year = 2016;
-    dateComp.month = 1;
     
-    NSDate *thisDate = [[NSCalendar currentCalendar] dateFromComponents:dateComp];
+    
+    NSDateComponents *dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:firstdate];
+ 
+    
     
     chart = [[UUChart alloc]initwithUUChartDataFrame:CGRectMake(5,self.view.frame.size.height- 270,[UIScreen mainScreen].bounds.size.width+40, 265) withSource:self withStyle:UUChartBarStyle];
     
@@ -164,24 +167,94 @@
 {
 //    NSArray *ary1 = @[@"2",@"4",@"6",@"8",@"10",@"12",@"14",@"16",@"14",@"12",@"10",@"8",@"6",@"4",@"2",@"2",@"14"];
 //    NSArray *ary2 = @[@"4",@"8",@"16",@"20",@"24",@"28",@"32",@"36",@"32",@"28",@"24",@"20",@"16",@"12",@"8",@"4"];
-
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *newDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:-7 toDate:firstdate options:nil];
+    
+    NSDateComponents *dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:newDate];
+    if(![self isDataAvailableAtDate:dateComp])
+    {
+        _lblUsage.hidden = NO;
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        
+        [window addSubview:_lblUsage];
+        
+        
+        return @[];
+    }
    
-        return @[[self generateArray],[self generateArray]];
+    _lblUsage.hidden = YES;
+    if(dateComp.month == 1)
+    {
+        return @[arrJanuary1,arrJanuary2];
+    }
+    else if(dateComp.month == 12)
+    {
+        return @[arrDecember1,arrDecember2];
+    }
+    else
+    {
+        return @[arrNovember1,arrNovember2];
+    }
+    return @[[self generateArray],[self generateArray]];
 }
 
--(NSMutableArray *)generateArray
+-(void)monthArray
 {
-    NSMutableArray *returnArray = [NSMutableArray new];
+    arrJanuary1 = @[@"15",@"3",@"5",@"15",@"7",@"4",@"9",@"15",@"2",@"15",@"15",@"11",@"8",@"8",@"3",@"7",@"5",@"5",@"3",@"4",@"6",@"12",@"10",@"7",@"6",@"12",@"5"];
+    
+    
+        arrJanuary2 = @[@"12",@"4",@"6",@"4",@"7",@"9",@"11",@"12",@"15",@"12",@"13",@"5",@"6",@"9",@"11",@"3",@"4",@"5",@"10",@"12",@"6",@"5",@"8",@"9",@"4",@"6",@"8"];
+    
+    
+        arrDecember1 = @[@"12",@"4",@"6",@"4",@"7",@"9",@"11",@"12",@"15",@"12",@"13",@"5",@"6",@"9",@"11",@"3",@"4",@"5",@"10",@"12",@"6",@"5",@"8",@"9",@"4",@"6",@"8"];
+    
+        arrDecember2 = @[@"15",@"3",@"5",@"15",@"7",@"4",@"9",@"15",@"2",@"15",@"15",@"11",@"8",@"8",@"3",@"7",@"5",@"5",@"3",@"4",@"6",@"12",@"10",@"7",@"6",@"12",@"5"];
+    
+    
+    
+        arrNovember1 = @[@"15",@"3",@"5",@"15",@"7",@"4",@"9",@"15",@"2",@"15",@"15",@"11",@"8",@"8",@"3",@"7",@"5",@"5",@"3",@"4",@"6",@"12",@"10",@"7",@"6",@"12",@"5"];
+        arrNovember2 = @[@"15",@"15",@"15",@"13",@"15",@"4",@"15",@"15",@"5",@"15",@"15",@"15",@"15",@"15",@"8",@"15",@"11",@"15",@"15",@"4",@"15",@"15",@"15",@"15",@"7",@"15",@"15"];
+}
 
-        for(int i=0;i<27;i++)
-        {
-            [returnArray addObject:[NSNumber numberWithInt:arc4random()%22+2]];
-        }
-        
+-(NSArray *)generateArray
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *newDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:-7 toDate:firstdate options:nil];
+    
+    NSDateComponents *dateComp = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:newDate];
+
+    if(dateComp.month == 1)
+    {
+        return arrJanuary1;
+    }
+    else if (dateComp.month == 12)
+    {
+        return arrDecember1;
+    }
+    else
+    {
+        return arrNovember1;
+    }
     
 
-    return returnArray;
+    return nil;
 }
+
+-(BOOL)isDataAvailableAtDate:(NSDateComponents *)date
+{
+    if(date.day > 1 && date.day < 10)
+    {
+        return NO;
+    }
+    if(date.month<11 && date.year<2016)
+    {
+        return NO;
+    }
+    
+    return YES;
+}
+
 #pragma mark - @optional
 //颜色数组
 - (NSArray *)UUChart_ColorArray:(UUChart *)chart
