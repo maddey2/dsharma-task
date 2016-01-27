@@ -18,6 +18,8 @@
     int path;
     
     int arrNum;
+    
+    int asd;
 }
 
 
@@ -57,19 +59,6 @@
     dateLabel.text = [dateFormat stringFromDate:[NSDate date]];
     dateLabel.text = [dateFormat stringFromDate: firstdate];
     
-////
-//    Customscrollview=[[UIScrollView alloc]initWithFrame:CGRectMake(0,340,self.view.frame.size.width,self.view.frame.size.height-350)];
-//    tableView.backgroundColor = [UIColor clearColor];
-//    
-//    
-//
-//    Customscrollview.showsVerticalScrollIndicator=YES;
-//    Customscrollview.showsHorizontalScrollIndicator = YES;
-//  
-//    Customscrollview.userInteractionEnabled=YES;
-//   
-//    [self.view addSubview:Customscrollview];
-//
     
    
         [self dateChange];
